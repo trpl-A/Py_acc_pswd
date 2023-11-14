@@ -1,0 +1,38 @@
+- bug with the 'menu' function. repeats the exit-loop prompt too many times. shouldnt repeat at all
+(resolved)
+
+- should change the static paths in the 'create_account.py' file to dynamic paths
+(resolved)
+
+- clean up the code once i finally complete the projects
+- create an exe file with a custom icon
+
+- maybe have a section that displays the source code of the main or most elaborate file/ function in the exe file
+(done; partially)
+
+- delete/hide data or encoded files
+
+- maybe duplicate some of the main data/ encoded files on the root dir (maybe create a dir and add the files in there)
+
+
+- create classes 
+- convert to exe? 
+- the key is a letter
+
+let the user select the complexity of the cypher -> primative 1+2, highly secure (3 options)
+
+add this option when the user sets up the master password and username 
+
+the existance of the setup file indicates whether an account has been created or not 
+(hide the setup file, and key file, maybe use the .lock or .key ext)
+
+put all the important stuff in a folder, and hide the folder
+also, copy the folder to the root 
+
+del the file that has the data in plain text (first scramble the data, then del it)
+or wipe the file clean
+
+
+- work on remove_acc function, do write data to new temp file, and erase data from old file
+
+- convert to exe file? 
