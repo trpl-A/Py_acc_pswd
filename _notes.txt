@@ -40,3 +40,9 @@ or wipe the file clean
 
 - add a feature, for adding a password, for the user to re-enter the password (when adding more social accounts to doc)
 (mayb create a verify_password function)
+
+
+- complete the overwrite function 
+
+- copy the files dir to the root 
+

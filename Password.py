@@ -47,9 +47,9 @@ class Password:
 
         account_exists = False 
         while not account_exists:
-            username = input("Create your username: ")
-            password = input("Create your password: ")
-            retype_password = input("Confirm your password: ")
+            username = input("Create your username: ").lower()
+            password = input("Create your password: ").lower()
+            retype_password = input("Confirm your password: ").lower()
 
             if password != retype_password:
                 print(f"{Fore.RED}Passwords do not match{Fore.RESET}\n")
@@ -65,13 +65,10 @@ class Password:
                 account_exists = True 
                 print()
         
-        # selected_option = self.encryption_complexity()
-
         # create setup file
         with open("files/setup", mode="w") as w:
             w.write(f"{username}\n")
             w.write(f"{password}\n")
-            # w.write(f"{selected_option},\n")
 
         with open("files/key", mode="w") as key:
             key.write(f"{username[0]}\n")
@@ -105,10 +102,6 @@ class Password:
         # decrypting
         with open("files/key", mode="r") as r:
             key = r.readlines()
-        
-        # determining complexity level
-        # key_complexity = (key[1].strip("\n"))
-        # print(key_complexity)
 
         key_num = alpha.index(key[0].lower().strip("\n"))
         obj = Caesar()
@@ -118,7 +111,7 @@ class Password:
             lines = r.readlines()
 
         password = lines[1].strip("\n")
-        print(password)
+        # print(password)
 
         # removing temp file
         os.remove("files/temp_setup")

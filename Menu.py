@@ -50,7 +50,7 @@ class Menu:
 
         # creating temp file; deleted at the end
         with open("temp", mode="w") as temp:
-            temp.write("temp: [temp, data]")
+            temp.write("")
 
         # getting key
         alpha = "abcdefghijklmnopqrstuvwxyz"
@@ -67,7 +67,6 @@ class Menu:
 
             for line in f:
                 if line != "\n":
-                    print(line)
                     line = line.strip("\n")
 
                     try:
@@ -76,12 +75,9 @@ class Menu:
 
                         acc_key = line[0:stop]
                         acc_value = line[(stop+2)::]
-
                         self.accounts[acc_key] = acc_value
 
                     except: pass 
-                    
-        # print(self.accounts)
     # ===============================================
 
 
@@ -257,8 +253,6 @@ class Menu:
                 if select in ["esc", "escape", "quit", "exit", "leave"]:
                     exit = True 
                     os.system("cls")
-                    # menu()
-
 
                 # listing all platform names
                 elif select == "list":
@@ -294,7 +288,7 @@ class Menu:
                         layer1 = input("\nenter the given code: ")
                         if layer1 == pswd1:
                             # clearing all data from text file
-                            clear = open("data.txt", "w")
+                            clear = open("temp", "w")
                             clear.write("")
 
 
@@ -305,7 +299,8 @@ class Menu:
                             a = self.accounts.keys()
 
                             platforms = []
-                            for aa in a: platforms.append(aa)
+                            for aa in a: 
+                                platforms.append(aa)
 
                             # printing platforms
                             platforms.sort()
@@ -313,7 +308,7 @@ class Menu:
                                 print(p)
                                 time.sleep(0.1)
 
-                                with open("data.txt", "a") as f:
+                                with open("temp", "a") as f:
                                     f.write(f"{p}: {self.accounts[p]}\n")
 
                             print(f"\n{Back.YELLOW}Account removed{Back.RESET}")
@@ -325,7 +320,6 @@ class Menu:
                                 exit = True 
                                 os.system("cls")
                                 # menu()
-
 
             except KeyError:
                 print(f"{Fore.RED}invalid input{Fore.RESET}")
@@ -342,35 +336,29 @@ class Menu:
             # print(re.split(":"))
             account_name = re.split(":")[0]
             account_names.add(account_name)
-      
 
         # rewriting to temp file
         with open("temp", mode="w") as t:
             for line in rr:
                 acc_name = line.split(":")[0]
-                print(acc_name)
+                # print(acc_name)
 
                 if acc_name in account_names:
                     t.write(line)
                     account_names.remove(acc_name)
-                    print("--sss")
-
     # ===============================================
 
  
     def overwrite(self) -> None:
         # get key
-        in_key = "j"
         with open("files/key", mode="r") as k:
             key = k.readlines()
 
-        # encrypt data
+        in_key = key[0].strip("\n")
+
+        # encrypt data, and writing to file
         obj = Caesar()
         data = obj.encrypt_write(input_file="temp", dest_file="files/acc.txt", key=in_key)
-
-        # overwriting to text file
-        # file = open(f"files/acc", "w")
-        # file.write(f"\n{data}\n")
     # ===============================================
 
 
@@ -379,8 +367,8 @@ class Menu:
         # adding accounts to file
         self.reading_accounts("files/acc.txt")
 
-        # --testing
-        # self.filter_account_names()
+        # removing duplicates
+        self.filter_account_names()
 
         # title
         print(f"\n{Fore.GREEN + Style.BRIGHT}ACC0UNT MANAGER{Fore.RESET}")
@@ -425,7 +413,5 @@ class Menu:
 # ***************************************************
 
 # obj = Menu()
-
-# obj.reading_accounts()
 # obj.menu()
 # ***************************************************
