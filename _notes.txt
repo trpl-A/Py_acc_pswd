@@ -1,8 +1,0 @@
-
-- clean up the code once i finally complete the projects
-- create an exe file with a custom icon, and add it to the main project dir callled (#stand-alone or something)
-
-
-
-- add a feature, for adding a password, for the user to re-enter the password (when adding more social accounts to doc)
-(mayb create a verify_password function)
