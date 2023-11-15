@@ -20,6 +20,7 @@ Crucial files and dirs:
     * setup
 ---
 
+- the 2nd option (ascii), does not work properly (the decoding part)
 - the 3rd option of encryption is currenty unavailable
     * it uses the cryptography.fernet class
 ---

@@ -35,4 +35,8 @@ or wipe the file clean
 
 - work on remove_acc function, do write data to new temp file, and erase data from old file
 
+- create a simpler version of this, and add that version to github (only use caesar cypher, maybe double caesar cypher too)
 - convert to exe file? 
+
+- add a feature, for adding a password, for the user to re-enter the password (when adding more social accounts to doc)
+(mayb create a verify_password function)

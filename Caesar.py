@@ -1,7 +1,12 @@
 class Caesar:
     """
-    This class if used to read and encrypt, or decrypt the data from a text file
-    It uses the Caesar cypher
+    This class if used to read and encrypt, or decrypt the data from a text file.
+    It uses the Caesar cypher.
+
+    METHODS (3)
+    - decrypt()
+    - encrypt()
+    - encrypt_show()
     """
 
     def __init__(self):

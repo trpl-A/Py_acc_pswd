@@ -2,11 +2,10 @@ from colorama import Fore, Back, Style
 import random
 import time 
 import os 
-# from cryptography.fernet import Fernet
 
 # MINE
 from Caesar import Caesar
-# ============================================================
+# -----------------------------------
 
 
 class Menu:
@@ -14,6 +13,23 @@ class Menu:
     The class is
 
     temp -> file for temp data 
+
+    ATTRIBUTES (3)
+    - options       <dict>
+    - close_words   <list>
+    - accounts      <dict>
+
+
+    METHODS (8)
+    - reading_accounts()
+    - view_acc()
+    - edit_acc()
+    - add_acc()
+    - remove_acc()
+    - filter_account_names()
+    - overwrite()
+
+    - <MAIN> menu()
     """
 
     def __init__(self):
@@ -49,17 +65,22 @@ class Menu:
         with open("temp", "r") as file:
             f = file.readlines()
 
-            for i in f:
-                if i != "\n":
-                    i = i.strip("\n")
-                    stop = i.index(":")
-                    # print(stop)
+            for line in f:
+                if line != "\n":
+                    print(line)
+                    line = line.strip("\n")
 
-                    acc_key = i[0:stop]
-                    acc_value = i[(stop+2)::]
+                    try:
+                        stop = line.index(":")
+                        # print(stop)
 
-                    self.accounts[acc_key] = acc_value
+                        acc_key = line[0:stop]
+                        acc_value = line[(stop+2)::]
 
+                        self.accounts[acc_key] = acc_value
+
+                    except: pass 
+                    
         # print(self.accounts)
     # ===============================================
 
@@ -310,7 +331,8 @@ class Menu:
                 print(f"{Fore.RED}invalid input{Fore.RESET}")
     # ===============================================
 
-    def filter_account_names(self):
+
+    def filter_account_names(self) -> None:
         # reading temp file
         account_names = set()
         with open("temp", mode="r") as r:
@@ -336,7 +358,7 @@ class Menu:
     # ===============================================
 
  
-    def overwrite_level1(self) -> None:
+    def overwrite(self) -> None:
         # get key
         in_key = "j"
         with open("files/key", mode="r") as k:
@@ -354,13 +376,11 @@ class Menu:
 
     # MAIN MENU
     def menu(self) -> None:
-       
-
         # adding accounts to file
         self.reading_accounts("files/acc.txt")
 
         # --testing
-        self.filter_account_names()
+        # self.filter_account_names()
 
         # title
         print(f"\n{Fore.GREEN + Style.BRIGHT}ACC0UNT MANAGER{Fore.RESET}")
@@ -389,7 +409,7 @@ class Menu:
                     user_left = True 
 
                     # encrypting
-                    self.overwrite_level1()
+                    self.overwrite()
 
                     # deleting temp file
                     os.remove("temp")
@@ -400,7 +420,6 @@ class Menu:
 
             else:
                 print(f"{Fore.RED}invalid input{Fore.RESET}")
-
     # ===============================================
 
 # ***************************************************
