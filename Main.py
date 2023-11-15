@@ -16,6 +16,9 @@ def main():
 
     obj1 = Password()
 
+    # check if files dir exists
+    obj1.check_if_dir_exists()
+
     # checking if account exists
     if (not obj1.check_if_account_exists()):
         # print(False)

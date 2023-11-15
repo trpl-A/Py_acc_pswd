@@ -13,7 +13,8 @@ class Password:
     This class is for the creation of the user's account, 
     and for the user to log in to this "password manager" account.
 
-    METHODS (3)
+    METHODS (4)
+    - check_if_dir_exists()
     - check_if_account_exists()
     - <MAIN, one time> account_setup()
         * used for the first time, when user didnt create an account yet
@@ -24,6 +25,14 @@ class Password:
 
     def __init__(self):
         pass 
+    # ===============================================
+
+    def check_if_dir_exists(self) -> None:
+        if not (os.path.exists("files")):
+            os.mkdir("files")
+
+        # else:
+        #     print("dir exists")
     # ===============================================
 
     def check_if_account_exists(self) -> bool:
@@ -162,4 +171,6 @@ class Password:
 
 # obj = Password()
 # print(help(obj))
+
+# obj.check_if_dir_exists()
 # ***************************************************

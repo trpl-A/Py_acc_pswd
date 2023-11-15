@@ -1,13 +1,14 @@
 # Program:      Password manager
 - Desc:         A program that stores accounts and passwords
-                Uses the Caesar cypher.
+                Uses the Caesar cypher
 - Developer:    trpl-A
 - Started:      01.01.23
 - Updated:      15.11.23
 - Status
-    * work-in-progress
+    * COMPLETE
     * connected to git?     yes
-    * connected to github?  no
+    * connected to github?  yes
+---
 
 ## More notes
 _Crucial files and dirs:_
